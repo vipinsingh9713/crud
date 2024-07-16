@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+
+<title>register</title>
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 offset-md-3 mt-5">
+
+				<form action="#" th:action="@{/update/{id} (id=${employee.id})}"
+					th:object="${employee}" method="post">
+
+					<div class="form-group mt-3">
+						<input type="text" th:field="*{name}" class="form-control"
+							placeholder="Employee name " />
+						<div th:if="${#fields.hasErrors('name')}" class="text-danger"
+							th:text="${#fields.errors('name')[0]}">Name error</div>
+					</div>
+
+					<div class="form-group mt-3">
+						<input type="email" th:field="*{email}" class="form-control"
+							placeholder="Employee email " />
+						<div th:if="${#fields.hasErrors('email')}" class="text-danger"
+							th:text="${#fields.errors('email')[0]}">Email error</div>
+					</div>
+
+					<div class="form-group mt-3">
+						<input type="text" th:field="*{department}" class="form-control"
+							placeholder="Employee department " />
+						<div th:if="${#fields.hasErrors('department')}"
+							class="text-danger" th:text="${#fields.errors('department')[0]}">Department
+							error</div>
+					</div>
+
+					<div class="form-group mt-3">
+						<input type="number" th:field="*{salary}" class="form-control"
+							placeholder="Employee salary " />
+						<div th:if="${#fields.hasErrors('salary')}" class="text-danger"
+							th:text="${#fields.errors('salary')[0]}">Salary error</div>
+					</div>
+
+					<div class="form-group mt-3">
+						<input type="number" th:field="*{mobile_no}" class="form-control"
+							placeholder="Employee mobile number " />
+						<div th:if="${#fields.hasErrors('mobile_no')}" class="text-danger"
+							th:text="${#fields.errors('mobile_no')[0]}">Mobile number
+							error</div>
+					</div>
+
+					<div class="container mt-3 text-center">
+						<a th:href="@{/}" class="btn btn-primary">Back</a>
+						<button type="submit" class="btn btn-success">Update</button>
+						<button type="reset" class="btn btn-warning">Reset</button>
+
+					</div>
+
+				</form>
+
+				<div th:if="${param.success}">
+					<p class="text-success mt-2">Employee registered successfully!</p>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Optional JavaScript; choose one of the two! -->
+
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+
+	<!-- Option 2: Separate Popper and Bootstrap JS -->
+	<!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+</html>
